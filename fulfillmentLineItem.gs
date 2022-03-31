@@ -69,7 +69,7 @@ function getShipstationData(endpoint, filters) {
     'method': 'GET',
     'muteHttpExceptions': true,
     'headers': {
-      'Authorization': 'Basic MzNkZWVhNzljMThlNDZjODhlNTI2ZmNiNjIzNjQ2MGQ6MDJhZTQ2NjdkMDhiNDZmNzgwYmZhMDFhNTI0ZWFjNjI='
+      'Authorization': 'Basic YOURCREDENTIALS'
     }
   };
   
