@@ -1,11 +1,3 @@
-/*function testbaybee () {
-  var bleep = [];
-  bleep = getPages(1,2,"/orders", minusMonthsDate("01/01/2020",12), formattedDate("01/31/2020"));
-  console.log(bleep.length);
-  var bloop = [];
-  bloop = getPages(1,2,"/fulfillments", formattedDate("01/01/2020"), formattedDate("01/31/2020"));
-  appendDataToSheet(bloop, bleep);
-}*/
 function formattedDate (string) {
   var newDate = new Date(string).toISOString();
   return newDate;
