@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+  </head>
+  <body>
+    <h1>Enter your ShipStation API secret and key</h1>
+    <p>Click <a target="_blank" href="https://ss.shipstation.com/#/settings/api">here</a> to find your API key and secret.</p>
+    <br>
+    <label for="key">API Key:</label>
+    <input type="text" id="key" name="key">
+    <br>
+    <label for="secret">API Secret:</label>
+    <input type="text" id="secret" name="secret">
+    <button onclick="submitFunction()">Submit</button>
+
+  </body>
+  <script>
+    function submitFunction() {
+      let key = document.getElementById("key").value;
+      let secret = document.getElementById("secret").value;
+      console.log(key);
+      console.log(secret);
+      google.script.run
+      .withSuccessHandler(close)
+      .submit(key+":"+secret);
+    }
+
+    function close() {
+      google.script.host.close()
+    }
+  </script>
+</html>
