@@ -9,7 +9,7 @@ function log() {
 function onOpen() {
   ui.createMenu("Shipstation Picker")
   .addItem("Select date range","sideMenu")
-  .addItem("Test","log")
+  //.addItem("Test","log")
   .addSubMenu(ui.createMenu("API Authentication")
     .addItem("Enter API token","authenticateScript")
     .addItem("Clear API token","clearToken")
