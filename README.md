@@ -1,2 +1,2 @@
-# shipstation-fulfillment-line-items
-Google Apps Script that fetches fulfillments and their items from a user-specified date range and appends them to a Google Sheet.
+Google Apps Script that fetches line items from shipments and fulfilments to a Google Sheet. To use, open a Google Sheet and click Extensions on the menu bar, then click Apps Script.
+Copy these code snippets, save, and authorize the script. On your next refresh there will be a new menu item. Authorize the script using the menu. With that you're off to the races! 🏇
