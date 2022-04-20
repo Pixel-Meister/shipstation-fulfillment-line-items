@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+  </head>
+  <body>
+      <label for="from">Start date:</label>
+        <input type="date" id="start" name="start">
+        <br>
+      <label for="to">End date:</label>
+        <input type="date" id="end" name="end">
+      <br>
+
+      <button onclick="validateData()" type="button">📅Submit date📅</button>
+  </body>
+  <script>
+    let start = document.getElementById("start");
+    let end = document.getElementById("end");
+    let today = new Date();
+    let daysAgo = new Date(today - 86400000); 
+    end.value = today.toISOString().substring(0,10);
+    start.max = today.toISOString().substring(0,10);
+    /*
+    end.addEventListener('change', (event) => {start.max = event.target.value});
+    */
+
+    function validateData() {
+      if(start.value > end.value || !start.value || !end.value) {
+        alert("You're missing a value or the start date is before the end date");
+      } else {
+        google.script.run.withSuccessHandler(closeModal).onCall(start.value,end.value);
+      }
+    }
+
+  function closeModal(success = false) {
+    if(success) {
+      google.script.host.close();
+    }
+  }
+
+
+  </script>
+</html>
