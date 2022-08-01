@@ -53,7 +53,16 @@ function onCall (startDate,endDate){
   shippingFulfillments.push(...getData("shipments",`shipDateStart=${startDate}&shipDateEnd=${endDate}`));
   console.log("Completed orders: " + shippingFulfillments.length);
   let orderInfo = [];
-  orderInfo.push(...getData("orders",`modifyDateStart=${startDate}&modifyDateEnd=${endDate}&orderStatus=shipped`))
+  
+  let modifyStart = new Date(startDate);
+  modifyStart.setMonth(modifyStart.getMonth() - 1);
+  modifyStart  = modifyStart.toISOString().substring(0,10);
+
+  let modifyEnd = new Date(endDate);
+  modifyEnd.setMonth(modifyEnd.getMonth() + 1);
+  modifyEnd  = modifyEnd.toISOString().substring(0,10);
+  
+  orderInfo.push(...getData("orders",`modifyDateStart=${modifyStart}&modifyDateEnd=${modifyEnd}&orderStatus=shipped`))
   console.log("Orders: " + orderInfo.length);
   updateSheet(shippingFulfillments,orderInfo);
   return "Success!"
